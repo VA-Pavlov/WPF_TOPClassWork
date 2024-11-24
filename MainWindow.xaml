@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Вход" Height="391" Width="652">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock Name="ErrorTextBox" Foreground="Red" HorizontalAlignment="Center"/>
+            <TextBlock FontSize="15" Margin="20,10">Логин:</TextBlock>
+            <TextBox Name="LoginBox" Margin="20,0" FontSize="20"/>
+            <TextBlock FontSize="15" Margin="20,10">Пароль:</TextBlock>
+            <Grid Name="GridStack" Margin="20,0">
+                <StackPanel Orientation="Horizontal" >
+                    <PasswordBox FontSize="20" Width="313"/>
+                    <Button Click="Button_Click">
+                        <Image Source="/icons/Open.png" Width="30" Height="30" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Button Margin="60,20" FontSize="15" FontWeight="Bold" Background="LightBlue" Click="Login_Click">Войти</Button>
+        </StackPanel>
     </Grid>
 </Window>
