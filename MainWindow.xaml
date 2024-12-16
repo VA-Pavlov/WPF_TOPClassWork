@@ -5,8 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Конвертер стилей" Height="500" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" FontSize="30" Grid.ColumnSpan="2" Text="Конвертер стилей" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
         
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" 
+                   Text="{Binding ElementName=ComicBlock,Path=FontFamily}"/>
+        <TextBox x:Name="ComicBox" FontSize="20" Grid.Row="3" Margin="20"/>
+        <TextBlock x:Name="ComicBlock" FontSize="20" Grid.Row="3" Grid.Column="1" 
+                   FontFamily="Comic Sans MS" Margin="20"
+                   Text="{Binding ElementName=ComicBox,Path=Text}"/>
+
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   Text="{Binding ElementName=INRBlock,Path=FontFamily}"/>
+        <TextBox x:Name="INRBox" FontSize="20" Grid.Row="5" Margin="20"/>
+        <TextBlock x:Name="INRBlock" FontSize="20" Grid.Row="5" Grid.Column="1" 
+           FontFamily="Times New Roman" Margin="20"
+           Text="{Binding ElementName=INRBox,Path=Text}"/>
+        
+        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" 
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Center"
+           Text="Sylfaen"/>
+        <TextBox x:Name="SylfaenBox" FontSize="20" Grid.Row="7" Margin="20"/>
+        <TextBlock x:Name="SylfaenBlock" FontSize="20" 
+                   Grid.Row="7" Grid.Column="1" 
+                   Margin="20"
+                   FontFamily="Sylfaen"/>
+
+        <TextBlock Grid.Row="8" Grid.ColumnSpan="2" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            Text="Calibri"/>
+        <TextBox x:Name="CalibriBox" FontSize="20" Grid.Row="9" Margin="20"/>
+        <TextBlock FontSize="20" 
+                   Grid.Row="9" Grid.Column="1" 
+                   FontFamily="Calibri"
+                   Name="CalibriBlock"
+                   Margin="20"/>
     </Grid>
 </Window>
