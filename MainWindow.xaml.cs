@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,18 +21,27 @@ namespace WPF_TOPClassWork
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> phones;
+        ObservableCollection<Phone> phones;
         public MainWindow()
         {
             InitializeComponent();
 
-            phones = new List<string> { "iPhone 6S Plus", "Nexus 6P", "Galaxy S7 Edge" };
+            phones = new ObservableCollection<Phone>()
+            {
+                new Phone{Id=1,Title="iPhone 6S", Company="Apple" },
+                new Phone {Id=2,Title="Lumia 950", Company="Microsoft" },
+                new Phone {Id=3,Title="Nexus 5X", Company="Google" },
+                new Phone {Id=4,Title="Galaxy S6", Company="Samsung"}
+            };
+
+
             phonesList.ItemsSource = phones;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            phones.Add(InputTextBox.Text);
+            var phone = new Phone() { Id = Int32.Parse(IdBox.Text), Title = TitleBox.Text, Company = CompanyBox.Text };
+            phones.Add(phone);
         }
     }
 }

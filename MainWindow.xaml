@@ -7,8 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400">
     <StackPanel>
-        <TextBox Name="InputTextBox"/>
+        <TextBox Name="IdBox"/>
+        <TextBox Name="TitleBox"/>
+        <TextBox Name="CompanyBox"/>
         <Button Content="Add" Click="Button_Click"/>
-        <ListBox x:Name="phonesList" />
+        <ListBox x:Name="phonesList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Id}" FontSize="20"/>
+                        <StackPanel Margin="5">
+                            <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Text="{Binding Company}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </StackPanel>
 </Window>
