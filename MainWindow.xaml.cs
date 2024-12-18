@@ -23,6 +23,20 @@ namespace WPF_TOPClassWork
         public MainWindow()
         {
             InitializeComponent();
+
+            var day = new Day()
+            {
+                Location = "Moscow",
+                Wheather = "Overcast",
+                Date = DateTime.Now,
+                WeekDay = "Sun",
+                MaxTemperature = 3,
+                MinTemperature = -4,
+                Pressure = 120,
+                WindSpeed = 20,
+                WindDirection = "West"
+            };
+            this.DataContext = day;
         }
     }
 }
