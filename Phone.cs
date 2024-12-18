@@ -12,7 +12,6 @@ namespace WPF_TOPClassWork
         public Company Company { get; set; }
         public decimal Price { get; set; }
     }
-
     public class Company
     {
         public string Title { get; set; }
