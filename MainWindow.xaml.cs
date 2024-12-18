@@ -23,6 +23,14 @@ namespace WPF_TOPClassWork
         public MainWindow()
         {
             InitializeComponent();
+
+            var MyPhone = new Phone
+            {
+                Name = "Lumia 630",
+                Company = new Company { Title = "Microsoft" },
+                Price = 1000
+            };
+            MainStack.DataContext = MyPhone;
         }
     }
 }

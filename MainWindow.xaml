@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Name="MainStack">
+        <TextBlock Text="{Binding Path=Name}" />
+        <TextBlock DataContext="{Binding Path=Company}" Text="{Binding Path=Title}" />
+    </StackPanel>
 </Window>
