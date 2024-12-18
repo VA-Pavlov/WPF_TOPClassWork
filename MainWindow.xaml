@@ -39,7 +39,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Difficulty: " FontSize="20"/>
-                    <TextBlock Name="ValueSizeLineBlock" Text="15" FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Name="ValueSizeLineBlock" Text="{Binding ElementName=SizeLineSlider,Path=Value}" FontSize="20" FontWeight="Bold"/>
                 </StackPanel>
                 <Slider Name="SizeLineSlider" Grid.Column="1" Value="15" Maximum="80" VerticalAlignment="Center" />
             </Grid>
@@ -57,16 +57,16 @@
         </Grid>
         <StackPanel Name="KeybordStackPanel" Grid.Row="1" Margin="0,62,0,0" Grid.RowSpan="2">
             <StackPanel Orientation="Horizontal">
-                <Border Background="LightPink" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="3" Width="50" Height="50">
+                <Border Style="{StaticResource RedBorder}">
                     <TextBlock Text="`" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
                 </Border>
-                <Border Background="LightPink" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="3" Width="50" Height="50">
+                <Border Style="{StaticResource RedBorder}">
                     <TextBlock Text="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
                 </Border>
-                <Border Background="LightPink" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="3" Width="50" Height="50">
+                <Border Style="{StaticResource RedBorder}">
                     <TextBlock Text="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
                 </Border>
-                <Border Background="LightGoldenrodYellow" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="3" Width="50" Height="50">
+                <Border Style="{StaticResource YellowBorder}">
                     <TextBlock Text="3" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
                 </Border>
                 <Border Background="LightGreen" BorderBrush="Black" BorderThickness="2" CornerRadius="10" Margin="3" Width="50" Height="50">
