@@ -38,10 +38,20 @@ namespace WPF_TOPClassWork
             phonesList.ItemsSource = phones;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
             var phone = new Phone() { Id = Int32.Parse(IdBox.Text), Title = TitleBox.Text, Company = CompanyBox.Text };
             phones.Add(phone);
         }
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            phones.Remove((Phone)phonesList.SelectedItem);
+        }
+
+        private void phonesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InfoStack.DataContext = phonesList.SelectedItem;
+        }
+
     }
 }
