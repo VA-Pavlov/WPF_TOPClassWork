@@ -11,13 +11,31 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBox Name="IdBox"/>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <DatePicker/>
+                        <TextBox Width="200" />
+                    </StackPanel>
+                    <TextBox Height="50" TextWrapping="Wrap"/>
+                </StackPanel>
+                <Button Content="Add" Grid.Column="1"/>
+            </Grid>
+            <!--<TextBox Name="IdBox"/>
             <TextBox Name="TitleBox"/>
             <TextBox Name="CompanyBox"/>
-            <Button Content="Add" Click="Add_Click"/>
-            <Button Content="Delete" Click="Delete_Click"/>
-            <ListBox x:Name="phonesList" SelectionChanged="phonesList_SelectionChanged">
+            <Button Content="Add" Click="Add_Click"/>-->
+            <ListBox Grid.Row="1" x:Name="phonesList">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -30,7 +48,8 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </StackPanel>
+            <Button Grid.Row="2" Content="Delete" />
+        </Grid>
         <StackPanel Name="InfoStack" Grid.Column="1">
             <TextBlock Text="{Binding Id}" FontSize="20"/>
             <TextBlock Text="{Binding Title}"/>

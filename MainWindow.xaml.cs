@@ -21,37 +21,34 @@ namespace WPF_TOPClassWork
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<Phone> phones;
+        ObservableCollection<Make> makes;
         public MainWindow()
         {
             InitializeComponent();
 
-            phones = new ObservableCollection<Phone>()
+            makes = new ObservableCollection<Make>()
             {
-                new Phone{Id=1,Title="iPhone 6S", Company="Apple" },
-                new Phone {Id=2,Title="Lumia 950", Company="Microsoft" },
-                new Phone {Id=3,Title="Nexus 5X", Company="Google" },
-                new Phone {Id=4,Title="Galaxy S6", Company="Samsung"}
+                new Make{Date=DateTime.Now,Title="iPhone 6S", Description="qwweq wqe qweqwe qw ew sdasdw  dasdwe dasdf ersd d f asada feddsg ffsddfda asdas faasdd as"}
             };
 
 
-            phonesList.ItemsSource = phones;
+            phonesList.ItemsSource = makes;
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            var phone = new Phone() { Id = Int32.Parse(IdBox.Text), Title = TitleBox.Text, Company = CompanyBox.Text };
-            phones.Add(phone);
-        }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            phones.Remove((Phone)phonesList.SelectedItem);
-        }
+        //private void Add_Click(object sender, RoutedEventArgs e)
+        ////{
+        ////    var phone = new Phone() { Id = Int32.Parse(IdBox.Text), Title = TitleBox.Text, Company = CompanyBox.Text };
+        ////    phones.Add(phone);
+        //}
+        //private void Delete_Click(object sender, RoutedEventArgs e)
+        //{
+        //    //phones.Remove((Phone)phonesList.SelectedItem);
+        //}
 
-        private void phonesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            InfoStack.DataContext = phonesList.SelectedItem;
-        }
+        //private void phonesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //InfoStack.DataContext = phonesList.SelectedItem;
+        //}
 
     }
 }
