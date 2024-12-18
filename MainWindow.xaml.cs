@@ -20,9 +20,18 @@ namespace WPF_TOPClassWork
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> phones;
         public MainWindow()
         {
             InitializeComponent();
+
+            phones = new List<string> { "iPhone 6S Plus", "Nexus 6P", "Galaxy S7 Edge" };
+            phonesList.ItemsSource = phones;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            phones.Add(InputTextBox.Text);
         }
     }
 }
