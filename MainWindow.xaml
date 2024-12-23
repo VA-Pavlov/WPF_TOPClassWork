@@ -43,16 +43,6 @@
                     <TextBlock Text="Title2" FontSize="20" Margin="5"/>
                 </StackPanel>
             </StackPanel>
-            <!--<ListBox Grid.Row="1" x:Name="maksList">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Date}" FontSize="20"/>
-                                <TextBlock Text="{Binding Title}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>-->
             <Button Grid.Row="2" Content="Delete" Click="Delete_Click"/>
         </Grid>
         <StackPanel Grid.Column="1">
@@ -66,22 +56,15 @@
                        TextWrapping="Wrap" FontSize="15"
                        Margin="20"/>
             <StackPanel Margin="30">
-                <ScrollViewer>
-                    <StackPanel MaxHeight="200">
-                        <CheckBox Content="{Binding Tasks[0].Title}" FontSize="15" 
-                                  IsChecked="{Binding Tasks[0].Check}"
-                                  Foreground="{Binding Tasks[0].TaskBrush}"/>
-                        <CheckBox Content="{Binding Tasks[1].Title}" FontSize="15" 
-                                  IsChecked="{Binding Tasks[1].Check}"
-                                  Foreground="{Binding Tasks[1].TaskBrush}"/>
-                            <CheckBox Content="{Binding Tasks[2].Title}" FontSize="15" 
-                                      IsChecked="{Binding Tasks[2].Check}"
-                                      Foreground="{Binding Tasks[2].TaskBrush}"/>
-                        <CheckBox Content="{Binding Tasks[3].Title}" FontSize="15"
-                                  Foreground="{Binding Tasks[3].TaskBrush}" 
-                                  IsChecked="{Binding Tasks[3].Check}"/>
-                    </StackPanel>
-                </ScrollViewer>
+                <ListBox ItemsSource="{Binding Path=Tasks}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Title}" FontSize="15" 
+                                IsChecked="{Binding Check}"
+                                Foreground="{Binding TaskBrush}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <Button Content="Add" Width="100"
                         FontSize="15"/>
             </StackPanel>

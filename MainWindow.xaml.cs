@@ -26,21 +26,7 @@ namespace WPF_TOPClassWork
         {
             InitializeComponent();
 
-            makes = new ObservableCollection<Make>()
-            {
-                new Make{Date=DateTime.Now,
-                    Title="Дело 1", 
-                    Description="Какое-то описание задачи, которое может быть длинным и при необходимости текст должен переноситься на новую строку.",
-                    Tasks = new List<Task>
-                    {
-                        new Task(){Title = "Подзадача 1"},
-                        new Task(){Title = "Подзадача 2"},
-                        new Task(){Title = "Подзадача 3"},
-                        new Task(){Title = "Выполненная подзадача", Check=true, TaskBrush = Brushes.Gray}
-                    }
-                }
-            };
-            this.DataContext = makes;
+            this.DataContext = MakesDerictory.GetMakes()[0];
 
             //maksList.ItemsSource = makes;
         }
