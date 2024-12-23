@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ToDoList" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid Margin="5">
             <Grid.RowDefinitions>
@@ -24,36 +24,60 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <DatePicker/>
-                        <TextBox Width="200" />
+                        <DatePicker Name="DateBox"/>
+                        <TextBox x:Name="TitleBox" Width="200" />
                     </StackPanel>
-                    <TextBox Height="50" TextWrapping="Wrap"/>
+                    <TextBox x:Name="DescriptionBox" Height="50" TextWrapping="Wrap"/>
                 </StackPanel>
-                <Button Content="Add" Grid.Column="1"/>
+                <Button Content="Add" Grid.Column="1" Click ="Add_Click"/>
             </Grid>
-            <!--<TextBox Name="IdBox"/>
-            <TextBox Name="TitleBox"/>
-            <TextBox Name="CompanyBox"/>
-            <Button Content="Add" Click="Add_Click"/>-->
-            <ListBox Grid.Row="1" x:Name="phonesList">
+            <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="30.06" FontSize="20"
+                                VerticalAlignment="Center"/>
+                    <TextBlock Text="Title" FontSize="20" Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="23.12" FontSize="20"
+                VerticalAlignment="Center"/>
+                    <TextBlock Text="Title2" FontSize="20" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+            <!--<ListBox Grid.Row="1" x:Name="maksList">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Id}" FontSize="20"/>
-                            <StackPanel Margin="5">
+                            <TextBlock Text="{Binding Date}" FontSize="20"/>
                                 <TextBlock Text="{Binding Title}"/>
-                                <TextBlock Text="{Binding Company}"/>
-                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
-            </ListBox>
-            <Button Grid.Row="2" Content="Delete" />
+            </ListBox>-->
+            <Button Grid.Row="2" Content="Delete" Click="Delete_Click"/>
         </Grid>
-        <StackPanel Name="InfoStack" Grid.Column="1">
-            <TextBlock Text="{Binding Id}" FontSize="20"/>
-            <TextBlock Text="{Binding Title}"/>
-            <TextBlock Text="{Binding Title}"/>
+        <StackPanel Grid.Column="1">
+            <TextBlock Name="InfoTitleBlock" FontSize="30" Text="Title"
+                       HorizontalAlignment="Center"
+                       FontWeight="Bold"/>
+            <TextBlock x:Name="InfoDateBlick" FontSize="15" Text="23.12.2024"
+                       HorizontalAlignment="Center"
+                       Foreground="Gray"/>
+            <TextBlock x:Name="InfoDiscriptionBox" Text="Какое-то описание задачи, которое может быть длинным и при необходимости текст должен переноситься на новую строку."
+                       TextWrapping="Wrap" FontSize="15"
+                       Margin="20"/>
+            <StackPanel Margin="30">
+                <ScrollViewer>
+                    <StackPanel MaxHeight="200">
+                        <CheckBox Content="Подзадача 1" FontSize="15"/>
+                        <CheckBox Content="Подзадача 2" FontSize="15"/>
+                        <CheckBox Content="Подзадача 3" FontSize="15"/>
+                        <CheckBox Content="Выполненная подзадача" FontSize="15"
+                                  Foreground="Gray" IsChecked="True"/>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button Content="Add" Width="100"
+                        FontSize="15"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
