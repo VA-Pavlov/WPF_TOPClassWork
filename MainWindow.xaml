@@ -56,23 +56,30 @@
             <Button Grid.Row="2" Content="Delete" Click="Delete_Click"/>
         </Grid>
         <StackPanel Grid.Column="1">
-            <TextBlock Name="InfoTitleBlock" FontSize="30" Text="Title"
+            <TextBlock Name="InfoTitleBlock" FontSize="30" Text="{Binding Title}"
                        HorizontalAlignment="Center"
                        FontWeight="Bold"/>
-            <TextBlock x:Name="InfoDateBlick" FontSize="15" Text="23.12.2024"
+            <TextBlock x:Name="InfoDateBlick" FontSize="15" Text="{Binding Date}"
                        HorizontalAlignment="Center"
                        Foreground="Gray"/>
-            <TextBlock x:Name="InfoDiscriptionBox" Text="Какое-то описание задачи, которое может быть длинным и при необходимости текст должен переноситься на новую строку."
+            <TextBlock x:Name="InfoDiscriptionBox" Text="{Binding Description}"
                        TextWrapping="Wrap" FontSize="15"
                        Margin="20"/>
             <StackPanel Margin="30">
                 <ScrollViewer>
                     <StackPanel MaxHeight="200">
-                        <CheckBox Content="Подзадача 1" FontSize="15"/>
-                        <CheckBox Content="Подзадача 2" FontSize="15"/>
-                        <CheckBox Content="Подзадача 3" FontSize="15"/>
-                        <CheckBox Content="Выполненная подзадача" FontSize="15"
-                                  Foreground="Gray" IsChecked="True"/>
+                        <CheckBox Content="{Binding Tasks[0].Title}" FontSize="15" 
+                                  IsChecked="{Binding Tasks[0].Check}"
+                                  Foreground="{Binding Tasks[0].TaskBrush}"/>
+                        <CheckBox Content="{Binding Tasks[1].Title}" FontSize="15" 
+                                  IsChecked="{Binding Tasks[1].Check}"
+                                  Foreground="{Binding Tasks[1].TaskBrush}"/>
+                            <CheckBox Content="{Binding Tasks[2].Title}" FontSize="15" 
+                                      IsChecked="{Binding Tasks[2].Check}"
+                                      Foreground="{Binding Tasks[2].TaskBrush}"/>
+                        <CheckBox Content="{Binding Tasks[3].Title}" FontSize="15"
+                                  Foreground="{Binding Tasks[3].TaskBrush}" 
+                                  IsChecked="{Binding Tasks[3].Check}"/>
                     </StackPanel>
                 </ScrollViewer>
                 <Button Content="Add" Width="100"

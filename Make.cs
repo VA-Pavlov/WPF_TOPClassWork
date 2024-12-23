@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace WPF_TOPClassWork
 {
@@ -11,5 +12,6 @@ namespace WPF_TOPClassWork
         public DateTime Date { get; set; } 
         public string Title { get; set; }
         public string Description { get; set; }
+        public List<Task> Tasks { get; set; }
     }
 }
