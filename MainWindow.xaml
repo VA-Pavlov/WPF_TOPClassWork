@@ -5,8 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="СмешарикоМания" Height="450" Width="800" Icon="/romashka-solnce.jpg"
+>
+    <Grid Background="LightBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/right-Photoroom.png" Grid.Column="2" />
+        <Image Source="/left-Photoroom.png" />
+
+        <StackPanel Grid.Column="1" Margin="0,30">
+            <TextBlock HorizontalAlignment="Center" FontSize="30" TextWrapping="Wrap">Тест на знание смешариков</TextBlock>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">Как зовут самого умного смешарика?</TextBlock>
+            <WrapPanel HorizontalAlignment="Center">
+                <RadioButton Content="Крош" Margin="20,10"/>
+                <RadioButton Content="Ежик" Margin="20,10"/>
+                <RadioButton Content="Бараш" Margin="20,10"/>
+                <RadioButton Content="Совунья" Margin="20,10"/>
+                <RadioButton Content="Лосяш" Margin="10,10" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+            </WrapPanel>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">Кто из смешариков любит приключения?</TextBlock>
+            <WrapPanel HorizontalAlignment="Center">
+                <RadioButton Content="Крош" Margin="20,10" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+                <RadioButton Content="Ежик" Margin="20,10"/>
+                <RadioButton Content="Бараш" Margin="20,10"/>
+                <RadioButton Content="Совунья" Margin="20,10"/>
+                <RadioButton Content="Лосяш" Margin="10,10"/>
+            </WrapPanel>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">Какой смешарик всегда готов помочь?</TextBlock>
+            <WrapPanel HorizontalAlignment="Center">
+                <RadioButton Content="Крош" Margin="20,10"/>
+                <RadioButton Content="Ежик" Margin="20,10" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+                <RadioButton Content="Бараш" Margin="20,10"/>
+                <RadioButton Content="Совунья" Margin="20,10"/>
+                <RadioButton Content="Лосяш" Margin="10,10"/>
+            </WrapPanel>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">Кто из смешариков любит петь?
+            </TextBlock>
+            <WrapPanel HorizontalAlignment="Center">
+                <RadioButton Content="Крош" Margin="20,10"/>
+                <RadioButton Content="Ежик" Margin="20,10"/>
+                <RadioButton Content="Бараш" Margin="20,10"/>
+                <RadioButton Content="Совунья" Margin="20,10" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+                <RadioButton Content="Лосяш" Margin="10,10"/>
+            </WrapPanel>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">Какой смешарик всегда заботится о здоровье?</TextBlock>
+            <WrapPanel HorizontalAlignment="Center">
+                <RadioButton Content="Крош" Margin="20,10"/>
+                <RadioButton Content="Ежик" Margin="20,10"/>
+                <RadioButton Content="Бараш" Margin="20,10"/>
+                <RadioButton Content="Совунья" Margin="20,10" Checked="RadioButton_Checked" Unchecked="RadioButton_Unchecked"/>
+                <RadioButton Content="Лосяш" Margin="10,10"/>
+            </WrapPanel>
+            <Button FontSize="15" MaxWidth="400" Click="Button_Click">Сдать тест</Button>
+        </StackPanel>
     </Grid>
 </Window>

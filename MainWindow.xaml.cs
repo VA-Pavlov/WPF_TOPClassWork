@@ -20,9 +20,34 @@ namespace WPF_TOPClassWork
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int count = 0;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            count++;
+        }
+
+        private void RadioButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            count--;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string massag;
+            if (count <= 2)
+            {
+                massag = "Ты - “Новичок”.";
+            }
+            else if (count <= 4)
+                massag = "Ты - “Знаток”";
+            else
+                massag = "Ты - “Эксперт”.";
+            MessageBox.Show(massag);
         }
     }
 }
