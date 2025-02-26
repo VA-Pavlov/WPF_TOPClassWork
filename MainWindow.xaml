@@ -6,7 +6,197 @@
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,1"  StartPoint="0,0">
+            <GradientStop Color="Red" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Margin="0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Border  Background="White" BorderBrush="LightCoral" BorderThickness="3" CornerRadius="10">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Какой-то текст</TextBlock>
+            </Border>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+                <StackPanel Margin="0,20">
+                    <!--<GroupBox  Header="Цвет фона" FontSize="20">
+                        <StackPanel>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> A:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> R:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> G:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> B:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>-->
+                    <GroupBox Header="Шрифт" FontSize="20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Button FontFamily="Arial" Content="Arial" Margin="5"/>
+                                <Button FontFamily="Comics" Content="Comics" Grid.Column="1" Margin="5"/>
+                                <Button FontFamily="Times New Roman" Content="Times New Roman" Grid.Column="2" Margin="5"/>
+                                <Button FontFamily="Helvetica" Content="Helvetica" Grid.Column="3" Margin="5"/>
+                                <Button FontFamily="Courier New" Content="Courier New" Margin="5" Grid.Row="1"/>
+                                <Button FontFamily="Courier" Content="Courier" Grid.Column="1" Margin="5" Grid.Row="1"/>
+                                <Button FontFamily="Georgia" Content="Georgia" Grid.Column="2" Margin="5" Grid.Row="1"/>
+                                <Button FontFamily="Garamond" Content="Garamond" Grid.Column="3" Margin="5" Grid.Row="1"/>
+                            </Grid>
+                    </GroupBox>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.RowSpan="2" VerticalAlignment="Center"  FontSize="20">Размер текста: </TextBlock>
+                        <Slider Grid.Column="1" Margin="10,0" Minimum="1" Maximum="85" Value="40"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">40</TextBlock>
+                    </Grid>
+                    <GroupBox Header="Стиль текса" FontSize="20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Content="Bold" FontWeight="Bold" Margin="5"/>
+                            <Button Content="DemiBold" FontWeight="DemiBold" Grid.Column="1" Margin="5"/>
+                            <Button Content="Light" FontWeight="Light" Grid.Column="2" Margin="5"/>
+                            <Button Content="Normal" FontStyle="Normal" Grid.Row="1" Margin="5"/>
+                            <Button Content="Italic" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Margin="5"/>
+                            <Button Content="Oblique" FontStyle="Oblique" Grid.Row="1" Grid.Column="2" Margin="5"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox  Header="Цвет Текста" FontSize="20">
+                        <StackPanel>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> A:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> R:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> G:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                            <Grid Margin="30,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock FontSize="20" Margin="10"> B:</TextBlock>
+                                <Slider Minimum="0" Maximum="255" Grid.Column="1" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Row="1" Grid.ColumnSpan="2" FontSize="15" HorizontalAlignment="Center">0</TextBlock>
+                            </Grid>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
     </Grid>
 </Window>
