@@ -24,7 +24,7 @@
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
             <Border Name="ExempleBorder"  Background="White" BorderBrush="LightCoral" BorderThickness="3" CornerRadius="10">
-                <TextBlock x:Name="ExempleTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Какой-то текст</TextBlock>
+                <TextBlock x:Name="ExempleTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Какой-то текст</TextBlock>
             </Border>
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
                 <StackPanel Margin="0,20">
@@ -93,14 +93,46 @@
                                 <TextBlock Text="HEX:"/>
                                 <TextBox x:Name="HexTextBlock" Grid.Column="1"/>
                                 <Button Grid.Column="2" Content="+" Click="Button_Click"/>
-                                <ComboBox Grid.Column="4">
+                                <ComboBox Name="ColorBox" Grid.Column="4" SelectionChanged="ComboBox_SelectionChanged">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
-                                        <Label Background="Red"/>
-                                        <TextBlock Grid.Column="1" Text="Red"/>
+                                        <Label Width="50" Background="Red"/>
+                                        <TextBlock Grid.Column="1" Text="Red" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Width="50" Background="Green"/>
+                                        <TextBlock Grid.Column="1" Text="Green" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Width="50" Background="LightBlue"/>
+                                        <TextBlock Grid.Column="1" Text="LightBlue" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Width="50" Background="LightCoral"/>
+                                        <TextBlock Grid.Column="1" Text="LightCoral" HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Width="50" Background="White"/>
+                                        <TextBlock Grid.Column="1" Text="White" HorizontalAlignment="Center"/>
                                     </Grid>
                                 </ComboBox>
                             </Grid>
@@ -142,9 +174,9 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.RowSpan="2" VerticalAlignment="Center"  FontSize="20">Размер текста: </TextBlock>
-                        <Slider Grid.Column="1" Margin="10,0" Minimum="1" Maximum="85" Value="40"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" FontSize="15">40</TextBlock>
+                        <TextBlock  x:Name="SizeBlock" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"  FontSize="15">40</TextBlock>
+                        <Slider Grid.Column="1" Margin="10,0" Minimum="1" Maximum="85" Value="40" ValueChanged="Slider_ValueChanged" IsSnapToTickEnabled="True"/>
+                        <TextBlock Grid.RowSpan="2" VerticalAlignment="Center" FontSize="20">Размер текста:</TextBlock>
                     </Grid>
                     <GroupBox Header="Стиль текса" FontSize="20">
                         <Grid>
@@ -157,12 +189,12 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Button Content="Bold" FontWeight="Bold" Margin="5"/>
-                            <Button Content="DemiBold" FontWeight="DemiBold" Grid.Column="1" Margin="5"/>
-                            <Button Content="Light" FontWeight="Light" Grid.Column="2" Margin="5"/>
-                            <Button Content="Normal" FontStyle="Normal" Grid.Row="1" Margin="5"/>
-                            <Button Content="Italic" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Margin="5"/>
-                            <Button Content="Oblique" FontStyle="Oblique" Grid.Row="1" Grid.Column="2" Margin="5"/>
+                            <Button Content="Bold" FontWeight="Bold" Margin="5" Click="WeightButton_Click"/>
+                            <Button Content="Medium" FontWeight="Medium" Grid.Column="1" Margin="5" Click="WeightButton_Click"/>
+                            <Button Content="Light" FontWeight="Light" Grid.Column="2" Margin="5" Click="WeightButton_Click"/>
+                            <Button Content="Normal" FontStyle="Normal" Grid.Row="1" Margin="5" Click="StyleButton_Click"/>
+                            <Button Content="Italic" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Margin="5" Click="StyleButton_Click"/>
+                            <Button Content="Oblique" FontStyle="Oblique" Grid.Row="1" Grid.Column="2" Margin="5" Click="StyleButton_Click"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox  Header="Цвет Текста" FontSize="20">

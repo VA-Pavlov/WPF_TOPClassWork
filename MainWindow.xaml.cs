@@ -106,7 +106,55 @@ namespace WPF_TOPClassWork
         private void FontButton_Click(object sender, RoutedEventArgs e)
         {
             var font = ((Button)sender).Content.ToString();
-            ExempleTextBox.FontFamily = new FontFamily(font);
+            ExempleTextBlock.FontFamily = new FontFamily(font);
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            SizeBlock.Text = (sender as Slider).Value.ToString();
+            ExempleTextBlock.FontSize = Int32.Parse(SizeBlock.Text);
+        }
+
+        private void WeightButton_Click(object sender, RoutedEventArgs e)
+        {
+            var font = ((Button)sender).Content.ToString();
+            switch (font)
+            {
+                case "Bold":
+                    ExempleTextBlock.FontWeight = FontWeights.Bold;
+                    break;
+                case "Medium":
+                    ExempleTextBlock.FontWeight = FontWeights.Medium;
+                    break;
+                case "Light":
+                    ExempleTextBlock.FontWeight = FontWeights.Light;
+                    break;
+            }
+        }
+
+        private void StyleButton_Click(object sender, RoutedEventArgs e)
+        {
+            var font = ((Button)sender).Content.ToString();
+            switch (font)
+            {
+                case "Normal":
+                    ExempleTextBlock.FontStyle = FontStyles.Normal;
+                    break;
+                case "Italic":
+                    ExempleTextBlock.FontStyle = FontStyles.Italic;
+                    break;
+                case "Oblique":
+                    ExempleTextBlock.FontStyle = FontStyles.Oblique;
+                    break;
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ExempleBorder.Background = ((ColorBox.SelectedItem as Grid).Children[0] as Label).Background as SolidColorBrush;
+            var color = (ExempleBorder.Background as SolidColorBrush).Color;
+            ARGBToHex(color);
+            ChangeControlsCollorBackgrounf(color.A, color.R, color.G, color.B);
         }
     }
 }
