@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,5 +25,89 @@ namespace WPF_TOPClassWork
         {
             InitializeComponent();
         }
+
+        private void ABackSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var value = (byte)(sender as Slider).Value;
+            FontA.Text = value.ToString();
+            ExempleBorder.Background = new SolidColorBrush(Color.FromArgb(a: byte.Parse(FontA.Text), r: byte.Parse(FontR.Text), g: byte.Parse(FontG.Text), b: byte.Parse(FontB.Text)));
+            ARGBToHex((ExempleBorder.Background as SolidColorBrush).Color);
+        }
+
+        private void RBackSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var value = (byte)(sender as Slider).Value;
+            FontR.Text = value.ToString();
+            ExempleBorder.Background = new SolidColorBrush(Color.FromArgb(a: byte.Parse(FontA.Text), r: byte.Parse(FontR.Text), g: byte.Parse(FontG.Text), b: byte.Parse(FontB.Text)));
+            ARGBToHex((ExempleBorder.Background as SolidColorBrush).Color);
+        }
+
+        private void GBackSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var value = (byte)(sender as Slider).Value;
+            FontG.Text = value.ToString();
+            ExempleBorder.Background = new SolidColorBrush(Color.FromArgb(a: byte.Parse(FontA.Text), r: byte.Parse(FontR.Text), g: byte.Parse(FontG.Text), b: byte.Parse(FontB.Text)));
+            ARGBToHex((ExempleBorder.Background as SolidColorBrush).Color);
+        }
+        private void BBackSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            var value = (byte)(sender as Slider).Value;
+            FontB.Text = value.ToString();
+            ExempleBorder.Background = new SolidColorBrush(Color.FromArgb(a: byte.Parse(FontA.Text), r: byte.Parse(FontR.Text), g: byte.Parse(FontG.Text), b: byte.Parse(FontB.Text)));
+            ARGBToHex((ExempleBorder.Background as SolidColorBrush).Color);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var hexColor = HexTextBlock.Text;
+            // Удаляем символ # если он есть
+            hexColor = hexColor.StartsWith("#") ? hexColor.Substring(1) : hexColor;
+
+            if (hexColor.Length == 8)
+            {
+                byte a = Convert.ToByte(hexColor.Substring(0, 2), 16);
+                byte r = Convert.ToByte(hexColor.Substring(2, 2), 16);
+                byte g = Convert.ToByte(hexColor.Substring(4, 2), 16);
+                byte b = Convert.ToByte(hexColor.Substring(6, 2), 16);
+
+                ExempleBorder.Background = new SolidColorBrush(Color.FromArgb(a, r, g, b));
+                ChangeControlsCollorBackgrounf(a, r, g, b);
+            }
+            else if (hexColor.Length == 6)
+            {
+                // Преобразуем каждый компонент
+                byte r = Convert.ToByte(hexColor.Substring(0, 2), 16);
+                byte g = Convert.ToByte(hexColor.Substring(2, 2), 16);
+                byte b = Convert.ToByte(hexColor.Substring(4, 2), 16);
+
+                // Устанавливаем полную непрозрачность (FF)
+                ExempleBorder.Background = new SolidColorBrush(Color.FromArgb(255, r, g, b));
+                ChangeControlsCollorBackgrounf(255, r, g, b);
+            }
+            else
+                MessageBox.Show("Некорректный hex код");
+        }
+        private void ChangeControlsCollorBackgrounf(byte a, byte r, byte g, byte b)
+        {
+            FontA.Text = a.ToString();
+            ASlider.Value = (int)a;
+            FontR.Text = r.ToString();
+            RSlider.Value = (int)r;
+            FontG.Text = g.ToString();
+            GSlider.Value = (int)g;
+            FontB.Text = b.ToString();
+            BSlider.Value = (int)b;
+        }
+        private void ARGBToHex(Color color)
+        {
+            HexTextBlock.Text = $"#{color.A:X2}{color.R:X2}{color.G:X2}{color.B:X2}";
+        }
+
+        private void FontButton_Click(object sender, RoutedEventArgs e)
+        {
+            var font = ((Button)sender).Content.ToString();
+            ExempleTextBox.FontFamily = new FontFamily(font);
+        }
     }
 }
+
