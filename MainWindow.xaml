@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TOPClassWork"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="520" >
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Margin="5" Background="LightBlue" CornerRadius="20" BorderBrush="Green" BorderThickness="5">
+            <TextBlock x:Name="Text" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontSize="30" Focusable="True" KeyDown="TextBlock_KeyDown" KeyUp="Text_KeyUp" />
+        </Border>
+        <StackPanel x:Name="MainStack" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Border Width="100" Height="100" Background="LightCoral" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="10">
+                    <TextBlock Text="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/> 
+                </Border>
+                <Border Width="100" Height="100" Background="LightGreen" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="10">
+                    <TextBlock Text="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+                <Border Width="100" Height="100" Background="LightGoldenrodYellow" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="10">
+                    <TextBlock Text="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+                <Border Width="100" Height="100" Background="LightBlue" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="10">
+                    <TextBlock Text="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="150" Height="100" Background="LightCoral" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="10">
+                    <TextBlock Text="Shift" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+                <Border Width="100" Height="100" Background="LightGreen" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="5">
+                    <TextBlock Text="r" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+                <Border Width="100" Height="100" Background="LightYellow" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="5">
+                    <TextBlock Text="t" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+                <Border Width="100" Height="100" Background="LightBlue" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="5">
+                    <TextBlock Text="y" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                </Border>
+            </StackPanel>
+            <Border Width="400" Height="100" Background="LightPink" BorderBrush="Black" CornerRadius="20" BorderThickness="5" Margin="5">
+                <TextBlock Text="Space" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Button x:Name="StartButton" Margin="20,10" FontSize="20" Click="StartButton_Click">Start</Button>
+            <Button x:Name="StopButton" Margin="20,10" FontSize="20" IsEnabled="False" Click="StopButton_Click">Srop</Button>
+        </StackPanel>
     </Grid>
 </Window>
