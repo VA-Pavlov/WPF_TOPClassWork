@@ -32,5 +32,13 @@ namespace WPF_TOPClassWork
         {
             Background = Brushes.Gray;
         }
+
+        private void DogsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DogCard dogCard = new DogCard();
+            dogCard.DataContext = DogsListBox.SelectedItem;
+            MainGrid.Children.Add(dogCard);
+            Grid.SetColumn(dogCard, 1);
+        }
     }
 }

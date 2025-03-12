@@ -6,14 +6,16 @@
              xmlns:local="clr-namespace:WPF_TOPClassWork"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-     <Border Margin="5,2" Background="DarkOrange" BorderBrush="DarkOrange" BorderThickness="4" CornerRadius="30">
-     <Grid>
-         <Grid.ColumnDefinitions>
-             <ColumnDefinition/>
-             <ColumnDefinition Width="2*"/>
-         </Grid.ColumnDefinitions>
-         <Image Source="/image/Собака1.png" Grid.Row="1" Grid.RowSpan="2"/>
-         <TextBlock Grid.Column="1" Text="2,7" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
-     </Grid>
- </Border>
+    <Grid HorizontalAlignment="Stretch">
+        <Border Margin="5,2" Background="DarkOrange" BorderBrush="DarkOrange" BorderThickness="4" CornerRadius="30" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/image/Собака1.png" Grid.Row="1" Grid.RowSpan="2" Height="{Binding ElementName=ElementTextBlock, Path=FontSize}"/>
+                <TextBlock x:Name="ElementTextBlock" Grid.Column="1" Text="{Binding Text}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+            </Grid>
+        </Border>
+    </Grid>
 </UserControl>

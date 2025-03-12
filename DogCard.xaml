@@ -6,48 +6,44 @@
              xmlns:local="clr-namespace:WPF_TOPClassWork"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border BorderThickness="5" BorderBrush="Black" CornerRadius="20"  Background="Black">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
-        <Border Background="DarkOrange" Grid.RowSpan="2" CornerRadius="20,20,0,0">
-            <Image Source="/image/istockphoto-1214700549-612x612.png" Stretch="Fill" />
-
-        </Border>
-            <Image Source="/image/Собака1.png" Grid.Row="1" Grid.RowSpan="2"/>
-            <StackPanel  Grid.Row="3">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Image Source="/image/Собака1.png" Width="{Binding ElementName=AnimalNameTextBlock, Path=FontSize}">
-                        <Image.Clip>
-                            <EllipseGeometry Center="50,50" RadiusX="60" RadiusY="50"/>
-                        </Image.Clip>
-                    </Image>
-                    <TextBlock x:Name="AnimalNameTextBlock" Text="{Binding Name}" Foreground="DarkOrange" VerticalAlignment="Center" FontSize="30"/>
-            </StackPanel>
-                <TextBlock HorizontalAlignment="Center" Foreground="WhiteSmoke" Text="" FontSize="20"/>
-            </StackPanel>
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+    <Border Margin="10" BorderThickness="5" BorderBrush="Black" CornerRadius="20"  Background="Black">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <local:StateElement Text="2,7 кг"/>
-            <local:StateElement Grid.Column="1" Text="2"/>
-            <local:StateElement Grid.Column="2" Text="9"/>
-            <local:StateElement Grid.Column="0" Grid.Row="1" Text="3"/>
-            <local:StateElement Grid.Column="1" Grid.Row="1" Text="2"/>
-            <local:StateElement Grid.Column="2" Grid.Row="1" Text="2"/>
+            <Border Background="DarkOrange" Grid.RowSpan="2" CornerRadius="20,20,0,0">
+                <Image Source="/image/istockphoto-1214700549-612x612.png" Stretch="Fill" />
+
+            </Border>
+            <Image Source="/image/Собака1.png" Grid.Row="1" Grid.RowSpan="2"/>
+            <StackPanel  Grid.Row="3">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/image/Собака1.png" Width="{Binding ElementName=AnimalNameTextBlock, Path=FontSize}"/>
+                    <TextBlock x:Name="AnimalNameTextBlock" Text="{Binding Name}" Foreground="DarkOrange" VerticalAlignment="Center" FontSize="30"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Center" Foreground="WhiteSmoke" Text="{Binding DateOfBiesday, StringFormat={}{0:M.d.yyyy}}" FontSize="20"/>
+            </StackPanel>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <local:StateElement Text="{Binding Name}"/>
+                <local:StateElement Grid.Column="1" Text="{Binding Weight}"/>
+                <local:StateElement Grid.Column="2" Text="{Binding Event}"/>
+                <local:StateElement Grid.Column="0" Grid.Row="1" Text="{Binding CountPhoto}"/>
+                <local:StateElement Grid.Column="1" Grid.Row="1" Text="{Binding CountHost}"/>
+                <local:StateElement Grid.Column="2" Grid.Row="1" Text="{Binding CountNote}"/>
+            </Grid>
         </Grid>
-    </Grid>
-</Border>
+    </Border>
 </UserControl>
