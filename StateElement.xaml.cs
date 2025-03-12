@@ -16,21 +16,21 @@ using System.Windows.Shapes;
 namespace WPF_TOPClassWork
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для StateElement.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StateElement : UserControl
     {
-        public MainWindow()
+        public string Text { get; set; }
+        public static readonly DependencyProperty TextProperty =
+        DependencyProperty.Register(
+            "Text",
+            typeof(string),
+            typeof(StateElement),
+            new FrameworkPropertyMetadata(string.Empty));
+        public StateElement()
         {
             InitializeComponent();
-
-           // MainGrid.Children.Add(new DogCard() { DataContext = DogsRepositoriy.GetDog()[0] });
-            DogsListBox.ItemsSource = DogsRepositoriy.GetDog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Background = Brushes.Gray;
+            this.DataContext = this;
         }
     }
 }
