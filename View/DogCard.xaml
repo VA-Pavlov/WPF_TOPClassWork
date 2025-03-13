@@ -38,7 +38,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <local:StatusButton BackgroundElement="#fffc99" PathIcon="/Images/SystemIcons/Scales.png" />
+                    <local:StatusButton Text="{Binding Weight}" PathIcon="/Images/SystemIcons/Scales.png" />
                 </Grid>
             </Grid>
         </Border>

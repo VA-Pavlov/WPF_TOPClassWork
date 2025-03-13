@@ -20,7 +20,17 @@ namespace WPF_TOPClassWork.View
     /// </summary>
     public partial class StatusButton : UserControl
     {
-        public string Text {  get; set; }
+        public static readonly DependencyProperty TextProperty =
+        DependencyProperty.Register(
+            "Text",
+            typeof(string),
+            typeof(StatusButton),
+            new FrameworkPropertyMetadata(string.Empty));
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
         public string PathIcon {  get; set; }
        
 
