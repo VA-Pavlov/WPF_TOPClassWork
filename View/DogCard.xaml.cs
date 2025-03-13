@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_TOPClassWork.Data;
 
-namespace WPF_TOPClassWork
+namespace WPF_TOPClassWork.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для DogCard.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DogCard : UserControl
     {
-        public MainWindow()
+        public DogCard()
         {
             InitializeComponent();
-            ControlElement.DataContext = DogRepository.GetDog()[0];
-        }
-
-        private void AnimalListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

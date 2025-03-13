@@ -4,9 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_TOPClassWork"
+        xmlns:control="clr-namespace:WPF_TOPClassWork.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Мои питомцы" Height="450" Width="600">
+    <Grid Background="#fffc99" Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="AnimalListBox" Background="#fffc99" SelectionChanged="AnimalListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#141b2e" BorderThickness="0,0,0,1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/image/Собака1.png" Grid.Row="1" Grid.RowSpan="2" Height="{Binding ElementName=ElementTextBlock, Path=FontSize}"/>
+                            <TextBlock x:Name="ElementTextBlock" Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <control:DogCard Grid.Column="1" x:Name="ControlElement"/>
     </Grid>
 </Window>

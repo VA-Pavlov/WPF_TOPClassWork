@@ -12,24 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_TOPClassWork.Data;
 
-namespace WPF_TOPClassWork
+namespace WPF_TOPClassWork.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для StatusButton.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StatusButton : UserControl
     {
-        public MainWindow()
+        public string Text {  get; set; }
+        public string PathIcon {  get; set; }
+       
+
+        public StatusButton()
         {
             InitializeComponent();
-            ControlElement.DataContext = DogRepository.GetDog()[0];
-        }
-
-        private void AnimalListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            this.DataContext = this;
         }
     }
 }
